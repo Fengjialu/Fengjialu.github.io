@@ -6,11 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Welcome xxxxx to Jekyll!</title>
-  <meta name="description" content="You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different wa...">
+  <title>搭建这个独立博客</title>
+  <meta name="description" content="首先贴链接，主要参考了这篇博文： “授人以渔”的教你搭建个人独立博客：http://www.jianshu.com/p/8f843034c7ec">
 
   <link rel="stylesheet" href="/assets/main.css">
-  <link rel="canonical" href="http://localhost:4000/jekyll/update/2017/05/31/welcome-to-jekylleee%E7%9A%84%E5%89%AF%E6%9C%AC.html">
+  <link rel="canonical" href="http://localhost:4000/jekyll/update/2017/07/05/welcome-to-jekylleee%E7%9A%84%E5%89%AF%E6%9C%AC.html">
   <link rel="alternate" type="application/rss+xml" title="Your awesome title" href="/feed.xml">
   
   
@@ -67,29 +67,55 @@
         <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">Welcome xxxxx to Jekyll!</h1>
+    <h1 class="post-title" itemprop="name headline">搭建这个独立博客</h1>
     <p class="post-meta">
-      <time datetime="2017-05-31T17:39:02+08:00" itemprop="datePublished">
+      <time datetime="2017-07-05T14:58:00+08:00" itemprop="datePublished">
         
-        May 31, 2017
+        Jul 5, 2017
       </time>
       </p>
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <p>You’ll find this post in your <code class="highlighter-rouge">_posts</code> directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run <code class="highlighter-rouge">jekyll serve</code>, which launches a web server and auto-regenerates your site when a file is updated.</p>
+    <p>首先贴链接，主要参考了这篇博文：
+<a href="http://www.jianshu.com/p/8f843034c7ec">“授人以渔”的教你搭建个人独立博客</a>：http://www.jianshu.com/p/8f843034c7ec</p>
 
-<p>To add new posts, simply add a file in the <code class="highlighter-rouge">_posts</code> directory that follows the convention <code class="highlighter-rouge">YYYY-MM-DD-name-of-post.ext</code> and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.</p>
+<p>文章中介绍的非常详细，然而在实际搭建的过程中，还是遇到了很多坑，尝试了各种思路。</p>
 
-<p>Jekyll also offers powerful support for code snippets:</p>
+<p>其实早在几周前，已经在另一台电脑上安装成功了，但是今天装到macbook上时，还是遇到了一些新问题，当然，主要也是因为我尝试新思路而给自己挖的坑。（此处该有表情🤦‍）</p>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">print_hi</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
-  <span class="nb">puts</span> <span class="s2">"Hi, </span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">"</span>
-<span class="k">end</span>
-<span class="n">print_hi</span><span class="p">(</span><span class="s1">'Tom'</span><span class="p">)</span>
-<span class="c1">#=&gt; prints 'Hi, Tom' to STDOUT.</span></code></pre></figure>
+<p>来总结一下遇到的问题吧：</p>
 
-<p>Check out the <a href="https://jekyllrb.com/docs/home">Jekyll docs</a> for more info on how to get the most out of Jekyll. File all bugs/feature requests at <a href="https://github.com/jekyll/jekyll">Jekyll’s GitHub repo</a>. If you have questions, you can ask them on <a href="https://talk.jekyllrb.com/">Jekyll Talk</a>.</p>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="no">ERROR</span><span class="p">:</span>  <span class="no">While</span> <span class="n">executing</span> <span class="n">gem</span> <span class="p">.</span><span class="nf">.</span><span class="o">.</span> <span class="p">(</span><span class="no">Errno</span><span class="o">::</span><span class="no">EPERM</span><span class="p">)</span>
+
+    <span class="no">Operation</span> <span class="n">not</span> <span class="n">permitted</span> <span class="o">-</span> <span class="sr">/usr/</span><span class="n">bin</span><span class="o">/</span><span class="n">bundler</span></code></pre></figure>
+
+<p><a href="http://blog.csdn.net/leaf8742/article/details/50466619">参考</a>：http://blog.csdn.net/leaf8742/article/details/50466619</p>
+
+<p>解决方法1：换个路径安装，<code class="highlighter-rouge">sudo gem install -n /usr/local/bin bundler</code>
+需要<a href="http://www.cnblogs.com/nekoooo/p/5477987.html">配置环境变量</a>，但是治标不治本，还是会有这种情况出现</p>
+
+<p>解决方法2：
+下载命令行工具： <code class="highlighter-rouge">http://brew.sh</code>
+下载过后，运行命令行 <code class="highlighter-rouge">brew install ruby</code></p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="no">Bundler</span><span class="o">::</span><span class="no">GemNotFound</span></code></pre></figure>
+
+<p>这个就非常麻烦了，在原来的电脑上，由于上一步是用解决方法1，所以配置环境变量.bash_profile就可以解决</p>
+
+<p>但是在macbook上使用了解决方法2，而工程还用原本的git，所以一直找不到ruby路径，最终使用bundle替代（不能算解决）</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># 1.如果没有安装bundle</span>
+<span class="n">gem</span> <span class="n">install</span> <span class="n">bundle</span>
+<span class="c1"># 2.jekyll-blog目录创建Gemfile文件，内容参考链接</span>
+<span class="c1"># 3.运行bundle，安装Gemfile里的插件(姑且叫插件吧，我也不知道叫啥~_~!)</span>
+<span class="n">bundle</span> <span class="n">install</span> 
+<span class="c1"># 4.打开服务</span>
+<span class="n">bundle</span> <span class="nb">exec</span> <span class="n">jekyll</span> <span class="n">serve</span>
+<span class="c1"># or</span>
+<span class="n">jekyll</span> <span class="n">serve</span></code></pre></figure>
+
+<p>目前jekyll serve依然报错，bundle exec jekyll serve可以运行成功。（待解决）</p>
 
 
   </div>
